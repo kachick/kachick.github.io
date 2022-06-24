@@ -1,0 +1,18 @@
+name: 'Dependency Review'
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: 'Dependency Review'
+        # Workaround for https://github.com/actions/dependency-review-action/pull/131
+        uses: kachick/dependency-review-action@04e370c54afd1458f6fb9499256a5975c86a98ce
+        with:
+          # https://spdx.org/licenses/
+          allow-licenses: MIT, BSD-3-Clause, BSD-2-Clause, 0BSD, Unlicense, ISC, Apache-2.0, CC0-1.0, CC-BY-3.0

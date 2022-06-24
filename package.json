@@ -1,0 +1,13 @@
+{
+  "author": "Kenichi Kamiya <kachick1@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "lint": "stylelint \"**/*.css\" && dprint check"
+  },
+  "devDependencies": {
+    "dprint": "^0.29.1",
+    "stylelint": "^14.9.1",
+    "stylelint-config-prettier": "^9.0.3",
+    "stylelint-config-standard": "^26.0.0"
+  }
+}
