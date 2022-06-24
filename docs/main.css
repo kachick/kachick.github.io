@@ -36,7 +36,6 @@ a {
 }
 
 .footer {
-  grid-area: main-links2;
   max-height: 5%;
   font-size: x-small;
   position: sticky;
