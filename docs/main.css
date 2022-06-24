@@ -22,7 +22,7 @@ a {
 .main {
   font-size: large;
   font-family: "Alice";
-  line-height: 50;
+  padding-top: 45%;
 }
 
 .footer {
@@ -30,7 +30,6 @@ a {
 
   position: sticky;
   top: 100%;
-  margin-bottom: 0.4rem;
-  margin-right: 0.4rem;
+  margin-right: 0.2rem;
   text-align: right;
 }
