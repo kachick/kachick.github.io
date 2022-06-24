@@ -1,12 +1,12 @@
 @import url(https://fonts.bunny.net/css?family=alice:400);
 
+html {
+  height: 100%;
+}
+
 body {
   background-color: #333631;
-  color: #a86f4c;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
 }
 
 a {
@@ -14,7 +14,23 @@ a {
   text-decoration: none;
 }
 
+#index {
+  height: 100%;
+  text-align: center;
+}
+
 .main {
   font-size: large;
   font-family: "Alice";
+  line-height: 50;
+}
+
+.footer {
+  font-size: x-small;
+
+  position: sticky;
+  top: 100%;
+  margin-bottom: 0.4rem;
+  margin-right: 0.4rem;
+  text-align: right;
 }
