@@ -1,4 +1,4 @@
-@import url(https://fonts.bunny.net/css?family=alice:400);
+@import 'https://fonts.bunny.net/css?family=alice:400';
 
 html {
   height: 100%;
@@ -7,7 +7,6 @@ html {
 body {
   background-color: #333631;
   height: 100%;
-
 }
 
 a {
@@ -24,25 +23,22 @@ a {
   height: 95%;
   display: grid;
   grid-template:
-    "_main-noop-head" 40%
-    "main-links" 60%;
-
+    '_main-noop-head' 40%
+    'main-links' 60%;
   text-align: center;
-
   font-size: large;
-  font-family: "Alice";
+  font-family: Alice, sans-serif;
 }
 
 .main-links {
   grid-area: main-links;
-
   list-style: none;
 }
 
 .footer {
+  grid-area: main-links2;
   max-height: 5%;
   font-size: x-small;
-
   position: sticky;
   top: 100%;
   margin-right: 0.2rem;
