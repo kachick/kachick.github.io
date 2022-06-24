@@ -22,7 +22,8 @@ a {
 .main {
   font-size: large;
   font-family: "Alice";
-  padding-top: 45%;
+
+  line-height: 90vh;
 }
 
 .footer {
