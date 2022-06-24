@@ -1,0 +1,18 @@
+@import url(https://fonts.bunny.net/css?family=alice:400);
+
+body {
+  background-color: #333631;
+  color: #a86f4c;
+}
+
+a {
+  color: #a86f4c;
+  text-decoration: none;
+}
+
+.main {
+  text-align: center;
+  margin-top: 30%;
+  font-size: large;
+  font-family: "Alice";
+}
