@@ -1,4 +1,6 @@
 {
+  "author": "Kenichi Kamiya <kachick1@gmail.com>",
+  "license": "MIT",
   "scripts": {
     "lint": "stylelint \"**/*.css\" && dprint check"
   },
