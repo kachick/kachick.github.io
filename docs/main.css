@@ -3,6 +3,10 @@
 body {
   background-color: #333631;
   color: #a86f4c;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -11,8 +15,6 @@ a {
 }
 
 .main {
-  text-align: center;
-  margin-top: 30%;
   font-size: large;
   font-family: "Alice";
 }
