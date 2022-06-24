@@ -7,6 +7,7 @@ html {
 body {
   background-color: #333631;
   height: 100%;
+
 }
 
 a {
@@ -20,13 +21,26 @@ a {
 }
 
 .main {
+  height: 95%;
+  display: grid;
+  grid-template:
+    "_main-noop-head" 40%
+    "main-links" 60%;
+
+  text-align: center;
+
   font-size: large;
   font-family: "Alice";
+}
 
-  line-height: 90vh;
+.main-links {
+  grid-area: main-links;
+
+  list-style: none;
 }
 
 .footer {
+  max-height: 5%;
   font-size: x-small;
 
   position: sticky;
