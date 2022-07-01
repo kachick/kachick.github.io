@@ -2,7 +2,6 @@
   "recommendations": [
     "editorconfig.editorconfig",
     "dprint.dprint",
-    "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint"
   ]
 }

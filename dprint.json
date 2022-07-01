@@ -3,7 +3,11 @@
   },
   "markdown": {
   },
-  "includes": ["**/*.{json,md}"],
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true
+  },
+  "includes": ["**/*.{json,md,html,css,yml}"],
   "excludes": [
     "**/*-lock.json"
   ],
