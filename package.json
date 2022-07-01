@@ -2,7 +2,10 @@
   "author": "Kenichi Kamiya <kachick1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "stylelint \"**/*.css\" && dprint check"
+    "lint": "stylelint \"**/*.css\"",
+    "format:check": "dprint check",
+    "format:fix": "dprint fmt",
+    "ci": "npm run lint && npm run format:check"
   },
   "devDependencies": {
     "dprint": "^0.30.0",
