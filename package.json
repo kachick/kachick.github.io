@@ -8,7 +8,7 @@
     "ci": "npm run lint && npm run format:check"
   },
   "devDependencies": {
-    "dprint": "^0.30.0",
+    "dprint": "^0.30.2",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^26.0.0"
