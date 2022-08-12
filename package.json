@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "dprint": "^0.30.3",
-    "stylelint": "^14.9.1",
+    "stylelint": "^14.10.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^26.0.0"
   }
