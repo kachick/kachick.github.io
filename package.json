@@ -8,7 +8,6 @@
     "ci": "bun run lint && bun run format:check"
   },
   "devDependencies": {
-    "dprint": "^0.32.1",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^28.0.0",
