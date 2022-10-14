@@ -2,15 +2,18 @@
   "author": "Kenichi Kamiya <kachick1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "stylelint \"**/*.css\"",
+    "lint": "stylelint **/*.css",
     "format:check": "dprint check",
     "format:fix": "dprint fmt",
-    "ci": "npm run lint && npm run format:check"
+    "ci": "bun run lint && bun run format:check"
   },
   "devDependencies": {
     "dprint": "^0.32.1",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^28.0.0"
-  }
+    "stylelint-config-standard": "^28.0.0",
+    "bun-types": "^0.2.0"
+  },
+  "name": "kachick.github.io",
+  "type": "module"
 }
