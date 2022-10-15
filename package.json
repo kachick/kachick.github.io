@@ -2,7 +2,7 @@
   "author": "Kenichi Kamiya <kachick1@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "stylelint **/*.css",
+    "lint": "bun run stylelint **/*.css",
     "format:check": "dprint check",
     "format:fix": "dprint fmt",
     "ci": "bun run lint && bun run format:check"
