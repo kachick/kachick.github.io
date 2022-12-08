@@ -11,7 +11,7 @@
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-standard": "^29.0.0",
-    "bun-types": "^0.2.0"
+    "bun-types": "^0.3.0"
   },
   "name": "kachick.github.io",
   "type": "module"
