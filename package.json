@@ -1,6 +1,10 @@
 {
   "author": "Kenichi Kamiya <kachick1@gmail.com>",
   "license": "MIT",
+  "framework": {
+    "displayName": ":)",
+    "static": "docs"
+  },
   "scripts": {
     "lint": "bun run stylelint **/*.css",
     "format:check": "dprint check",
