@@ -3,19 +3,20 @@
   "license": "MIT",
   "framework": {
     "displayName": ":)",
-    "static": "docs"
+    "static": "public"
   },
   "scripts": {
     "lint": "bun run stylelint **/*.css",
-    "format:check": "dprint check",
-    "format:fix": "dprint fmt",
+    "format:check": "bun run dprint check",
+    "format:fix": "bun run dprint fmt",
     "ci": "bun run lint && bun run format:check"
   },
   "devDependencies": {
+    "bun-types": "^0.4.0",
+    "dprint": "^0.34.1",
     "stylelint": "^14.13.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-standard": "^29.0.0",
-    "bun-types": "^0.4.0"
+    "stylelint-config-standard": "^29.0.0"
   },
   "name": "kachick.github.io",
   "type": "module"
