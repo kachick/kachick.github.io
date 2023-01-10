@@ -3,7 +3,7 @@
   "license": "MIT",
   "framework": {
     "displayName": ":)",
-    "static": "docs"
+    "static": "public"
   },
   "scripts": {
     "lint": "bun run stylelint **/*.css",
