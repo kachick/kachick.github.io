@@ -7,8 +7,8 @@
   },
   "scripts": {
     "lint": "bun run stylelint **/*.css",
-    "format:check": "dprint check",
-    "format:fix": "dprint fmt",
+    "format:check": "bun run dprint check",
+    "format:fix": "bun run dprint fmt",
     "ci": "bun run lint && bun run format:check"
   },
   "devDependencies": {
