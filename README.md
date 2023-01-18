@@ -5,14 +5,10 @@ https://kachick.github.io/
 ## How to development
 
 ```console
-> bun install
-> bun dev
-[1.00ms] bun!! v0.4.0 (a94bba63)
-
-
-  Link: http://localhost:3002
+> nix-shell
+> deno install --allow-net --allow-read https://deno.land/std@0.159.0/http/file_server.ts
+> ~/.deno/bin/file_server public
+Listening on http://localhost:4507/
 ```
 
-Then you can access to http://localhost:3002/public/
-
-(Do not access "/". Bun does't serve CSS in root. See https://github.com/oven-sh/bun/issues/170 for further detail)
+Then you can access to http://localhost:4507/
