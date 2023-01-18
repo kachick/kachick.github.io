@@ -16,7 +16,7 @@ jobs:
         with:
           deno-version: v1.29.3
       # https://github.com/denoland/deno/issues/16901
-      - run: deno cache --reload npm:stylelint
+      - run: deno cache --reload npm:stylelint-config-standard
       - run: deno run --node-modules-dir --allow-env --allow-read npm:stylelint '**/*.css'
 
   dprint:
