@@ -3,7 +3,6 @@
 pkgs.mkShell {
   buildInputs = [
     pkgs.deno
-    pkgs.expect
     pkgs.direnv
     pkgs.dprint
     pkgs.nil
