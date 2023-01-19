@@ -17,8 +17,10 @@ jobs:
           deno-version: v1.29.3
       # https://github.com/denoland/deno/issues/16901
       - run: deno cache --node-modules-dir npm:stylelint npm:stylelint-config-standard npm:stylelint-config-prettier
-      # - run: deno run --node-modules-dir --allow-env --allow-read npm:stylelint '**/*.css'
-      - run: deno run --node-modules-dir --allow-env --allow-read stylelint.ts public/main.css
+      - run: |
+          stylelintoutput="$(mktemp)"
+          unbuffer deno run --node-modules-dir --allow-env --allow-read npm:stylelint/stylelint '**/*.css' | tee "$stylelintoutput"
+          ! [ -s "$stylelintoutput" ]
 
   dprint:
     runs-on: ubuntu-latest
