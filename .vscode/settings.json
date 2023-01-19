@@ -5,6 +5,7 @@
     "antongolub",
     "deno",
     "denoland",
+    "stdbuf",
     "unbuffer"
   ]
 }
