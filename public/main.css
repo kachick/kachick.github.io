@@ -19,7 +19,7 @@ a {
   grid-template:
     'main' 95dvh
     'footer' 5dvh;
-  font-family: Inconsolata, monospace;
+  font-family: Inconsolata, monospace; /* Should fail! for test */
 }
 
 .main {

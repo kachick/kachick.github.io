@@ -2,6 +2,9 @@
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dprint.dprint",
   "cSpell.words": [
-    "antongolub"
+    "antongolub",
+    "deno",
+    "denoland",
+    "unbuffer"
   ]
 }

@@ -8,25 +8,16 @@ on:
     paths-ignore:
       - 'LICENSE'
 jobs:
-  asdf-parser:
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    steps:
-      - uses: actions/checkout@v3
-      - uses: kachick/action-parse-asdf-tool-versions@v3
-        id: parse
-    outputs:
-      tool-versions: '${{ steps.parse.outputs.json }}'
   css:
-    needs: [asdf-parser]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: antongolub/action-setup-bun@v1
+      - uses: denoland/setup-deno@v1
         with:
-          bun-version: '${{ fromJson(needs.asdf-parser.outputs.tool-versions).bun }}'
-      - run: bun install
-      - run: bun run lint
+          deno-version: v1.29.3
+      # https://github.com/denoland/deno/issues/16901
+      - run: deno cache --node-modules-dir npm:stylelint npm:stylelint-config-standard npm:stylelint-config-prettier
+      - run: ./stylelint.bash
 
   dprint:
     runs-on: ubuntu-latest
