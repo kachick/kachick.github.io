@@ -12,14 +12,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Ensure unbuffer command exists
+        run: unbuffer date
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.29.3
       # https://github.com/denoland/deno/issues/16901
       - run: deno cache --node-modules-dir npm:stylelint npm:stylelint-config-standard npm:stylelint-config-prettier
       - run: |
-          stylelintoutput="$(mktemp)"
-          unbuffer deno run --node-modules-dir --allow-env --allow-read npm:stylelint/stylelint '**/*.css' | tee "$stylelintoutput"
+          stylelintoutput="$(mktemp)" &&
+          unbuffer deno run --node-modules-dir --allow-env --allow-read npm:stylelint/stylelint '**/*.css' | tee "$stylelintoutput" &&
           ! [ -s "$stylelintoutput" ]
 
   dprint:
