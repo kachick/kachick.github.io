@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: sudo apt-get install expect-dev
       - name: Ensure unbuffer command exists
         run: unbuffer date
       - uses: denoland/setup-deno@v1
