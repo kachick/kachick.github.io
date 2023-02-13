@@ -15,7 +15,7 @@ Then you can access to http://localhost:4507/
 Run stylelint
 
 ```console
-deno cache --node-modules-dir npm:stylelint npm:stylelint-config-standard npm:stylelint-config-prettier
+deno cache --node-modules-dir npm:stylelint@15.1.0 npm:stylelint-config-standard@30.0.1 --reload
 ./stylelint.bash
 ```
 

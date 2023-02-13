@@ -17,7 +17,7 @@ jobs:
         with:
           deno-version: v1.29.3
       # https://github.com/denoland/deno/issues/16901
-      - run: deno cache --node-modules-dir npm:stylelint npm:stylelint-config-standard npm:stylelint-config-prettier
+      - run: deno cache --node-modules-dir npm:stylelint@15.1.0 npm:stylelint-config-standard@30.0.1
       - run: ./stylelint.bash
 
   dprint:
