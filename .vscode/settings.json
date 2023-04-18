@@ -1,6 +1,17 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dprint.dprint",
+  "[nix]": {
+    "editor.defaultFormatter": "jnoortheen.nix-ide"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "dprint.json"
+      ],
+      "url": "https://docs.renovatebot.com/renovate-schema.json"
+    }
+  ],
   "cSpell.words": [
     "antongolub",
     "deno",

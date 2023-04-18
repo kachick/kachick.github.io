@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v3
       - uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.29.3
+          deno-version: v1.32.4
       # https://github.com/denoland/deno/issues/16901
-      - run: deno cache --node-modules-dir npm:stylelint@15.1.0 npm:stylelint-config-standard@30.0.1
+      - run: deno cache --node-modules-dir npm:stylelint@15.5.0 npm:stylelint-config-standard@33.0.0
       - run: ./stylelint.bash
 
   dprint:
