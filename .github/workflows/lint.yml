@@ -17,7 +17,7 @@ jobs:
         with:
           deno-version: v1.34.2
       # https://github.com/denoland/deno/issues/16901
-      - run: deno cache --node-modules-dir npm:stylelint@15.5.0 npm:stylelint-config-standard@33.0.0
+      - run: deno cache --node-modules-dir npm:stylelint@15.5.0 npm:stylelint-config-recommended@12.0.0
       - run: ./stylelint.bash
 
   dprint:
