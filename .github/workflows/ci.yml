@@ -1,12 +1,9 @@
-name: Lint
+name: CI
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'LICENSE'
   pull_request:
-    paths-ignore:
-      - 'LICENSE'
+
 jobs:
   css:
     timeout-minutes: 10
@@ -16,13 +13,15 @@ jobs:
       - uses: denoland/setup-deno@v1
         with:
           deno-version: v1.34.2
-      # https://github.com/denoland/deno/issues/16901
-      - run: deno cache --node-modules-dir npm:stylelint@15.5.0 npm:stylelint-config-standard@33.0.0
-      - run: ./stylelint.bash
+      - run: deno task stylelint
 
-  dprint:
+  check:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: dprint/check@v2.2
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.34.2
+      - run: deno task check

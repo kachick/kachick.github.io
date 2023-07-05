@@ -1,6 +1,10 @@
 {
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "dprint.dprint",
+  "deno.enable": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
   "[nix]": {
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
