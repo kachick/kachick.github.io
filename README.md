@@ -1,6 +1,6 @@
 # kachick.github.io
 
-https://kachick.github.io/
+<https://kachick.github.io/>
 
 ## How to development
 
@@ -10,7 +10,7 @@ https://kachick.github.io/
 Listening on http://localhost:4507/
 ```
 
-Then you can access to http://localhost:4507/
+Then you can access to <http://localhost:4507/>
 
 Run stylelint
 
