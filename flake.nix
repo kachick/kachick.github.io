@@ -14,7 +14,7 @@
           mkShell {
             buildInputs = [
               deno
-              expect # To keep color in tee of local development
+              # expect # Enable if needed to keep color in tee of local development
               direnv
               dprint
               nil
