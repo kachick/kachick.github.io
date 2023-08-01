@@ -8,15 +8,16 @@
 
 ## How to development
 
+Prepare dev shell with `nix develop` or `direnv allow`
+
 ```console
-> nix-shell
 > deno task serve
 Listening on http://localhost:4507/
 ```
 
 Then you can access to <http://localhost:4507/>
 
-There are some tasks for tests and stylelint
+There are some tasks for tests
 
 ```console
 > deno task
