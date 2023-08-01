@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/d625c365634b495154feb4a67806ca569a9d8e9c";
+    # Can find from https://releases.nixos.org/?prefix=nixpkgs/
+    nixpkgs.url = "https://releases.nixos.org/nixpkgs/nixpkgs-23.11pre509459.96d403ee2479/nixexprs.tar.xz";
     flake-utils.url = "github:numtide/flake-utils";
   };
 
