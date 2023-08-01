@@ -1,12 +1,13 @@
 name: 'Dependency Review'
-on: [pull_request]
+on:
+  pull_request:
 
 permissions:
   contents: read
 
 jobs:
   dependency-review:
-    timeout-minutes: 10
+    timeout-minutes: 15
     runs-on: ubuntu-latest
     steps:
       - name: 'Checkout Repository'
@@ -15,4 +16,5 @@ jobs:
         uses: actions/dependency-review-action@v3
         with:
           # https://spdx.org/licenses/
-          allow-licenses: MIT, BSD-3-Clause, BSD-2-Clause, 0BSD, Unlicense, ISC, Apache-2.0, CC0-1.0, CC-BY-3.0
+          allow-licenses: MIT, BSD-3-Clause, BSD-2-Clause, 0BSD, Unlicense, ISC, Apache-2.0, CC-BY-4.0
+          allow-dependencies-licenses: pkg:githubactions/DeterminateSystems/nix-installer-action
