@@ -27,7 +27,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and deploy
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Wait other jobs
         uses: kachick/wait-other-jobs@v1
         timeout-minutes: 10
