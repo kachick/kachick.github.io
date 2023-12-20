@@ -32,7 +32,7 @@ jobs:
         uses: kachick/wait-other-jobs@v2
         timeout-minutes: 10
       - uses: actions/configure-pages@v4
-      - uses: actions/upload-pages-artifact@v2
+      - uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
       - id: deployment
