@@ -1,5 +1,5 @@
-import { readAllSync } from 'https://deno.land/std@0.193.0/streams/read_all.ts';
-import { writeAllSync } from 'https://deno.land/std@0.193.0/streams/write_all.ts';
+import { readAllSync } from 'https://deno.land/std@0.217.0/io/read_all.ts';
+import { writeAllSync } from 'https://deno.land/std@0.217.0/io/write_all.ts';
 
 const input = readAllSync(Deno.stdin);
 
