@@ -11,7 +11,7 @@
 Prepare dev shell with `nix develop` or `direnv allow`
 
 ```console
-> deno task serve
+> DENO_VERBOSE_WARNINGS=1 deno task serve
 Listening on http://localhost:4507/
 ```
 
