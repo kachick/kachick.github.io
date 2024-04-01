@@ -1,6 +1,6 @@
 {
-  "editor.formatOnSave": true,
   "editor.defaultFormatter": "dprint.dprint",
+  "editor.formatOnSave": true,
   "deno.enable": true,
   "[typescript]": {
     "editor.defaultFormatter": "denoland.vscode-deno"
@@ -8,19 +8,13 @@
   "[nix]": {
     "editor.defaultFormatter": "jnoortheen.nix-ide"
   },
-  "json.schemas": [
-    {
-      "fileMatch": [
-        "dprint.json"
-      ],
-      "url": "https://docs.renovatebot.com/renovate-schema.json"
+  "nix.enableLanguageServer": true,
+  "nix.serverPath": "nil",
+  "nix.serverSettings": {
+    "nil": {
+      "formatting": {
+        "command": ["nixfmt"]
+      }
     }
-  ],
-  "cSpell.words": [
-    "antongolub",
-    "deno",
-    "denoland",
-    "stdbuf",
-    "unbuffer"
-  ]
+  }
 }
