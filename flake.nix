@@ -10,26 +10,35 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, edge-nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      edge-nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = nixpkgs.legacyPackages.${system};
         edge-pkgs = edge-nixpkgs.legacyPackages.${system};
-      in {
-        # Q. Why nixfmt? Not nixpkgs-fmt and alejandra?
-        # A. nixfmt will be official
+      in
+      {
+        # nixfmt will be official
         # - https://github.com/NixOS/nixfmt/issues/153
         # - https://github.com/NixOS/nixfmt/issues/129
         # - https://github.com/NixOS/rfcs/pull/166
-        formatter = edge-pkgs.nixfmt;
-        devShells.default = with pkgs;
+        # - https://github.com/NixOS/nixfmt/blob/a81f922a2b362f347a6cbecff5fb14f3052bc25d/README.md#L19
+        formatter = edge-pkgs.nixfmt-rfc-style;
+        devShells.default =
+          with pkgs;
           mkShell {
             buildInputs = [
               # https://github.com/NixOS/nix/issues/730#issuecomment-162323824
               # https://github.com/kachick/dotfiles/pull/228
               bashInteractive
               direnv
-              edge-pkgs.nixfmt
+              edge-pkgs.nixfmt-rfc-style
               edge-pkgs.nil
 
               edge-pkgs.deno
@@ -38,5 +47,6 @@
               edge-pkgs.go-task
             ];
           };
-      });
+      }
+    );
 }
