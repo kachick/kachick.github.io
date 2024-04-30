@@ -4,6 +4,14 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+    ignore:
+      - dependency-name: 'actions/dependency-review-action'
+        versions:
+          # https://github.com/actions/dependency-review-action/issues/759
+          - '4.3.1'
+          - '4.3.0'
+          # https://github.com/actions/dependency-review-action/issues/493
+          - '3.0.5'
     groups:
       DeterminateSystems-actions:
         patterns:
