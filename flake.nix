@@ -44,6 +44,7 @@
               edge-pkgs.deno
               edge-pkgs.dprint
               edge-pkgs.typos
+              edge-pkgs.yamlfmt
               edge-pkgs.go-task
             ];
           };
