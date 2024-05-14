@@ -15,7 +15,7 @@ jobs:
           deno-version: '1.43.1' # selfup { "regex": "\\d[^']+", "script": "deno --version | head -n 1 | cut -d ' ' -f 2" }
       - run: deno task stylelint
 
-  check:
+  dprint:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +23,27 @@ jobs:
       - uses: dprint/check@v2.2
         with:
           dprint-version: '0.45.1' # selfup { "regex": "\\d[^']+", "script": "dprint --version | cut -d ' ' -f 2" }
+
+  deno:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
       - uses: denoland/setup-deno@v1
         with:
           deno-version: '1.43.1' # selfup { "regex": "\\d[^']+", "script": "deno --version | head -n 1 | cut -d ' ' -f 2" }
       - run: deno task check
+
+  yamlfmt:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          # yamlfmt still uses this ver for the distribution
+          go-version: '1.18'
+      - name: Install yamlfmt
+        run: go install github.com/google/yamlfmt/cmd/yamlfmt@v0.12.1
+      - run: yamlfmt -lint .
