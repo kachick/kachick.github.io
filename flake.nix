@@ -42,7 +42,6 @@
               dprint
               typos
               yamlfmt
-              go-task
             ];
           };
       }
