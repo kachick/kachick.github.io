@@ -41,7 +41,6 @@
               deno
               dprint
               typos
-              yamlfmt
             ];
           };
       }
