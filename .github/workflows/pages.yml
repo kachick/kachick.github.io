@@ -49,11 +49,10 @@ jobs:
           skip-list: |
             [
               {
-                "workflowFile": "pages.yml",
-                "jobName": "Build and deploy"
+                "workflowFile": "merge-bot-pr.yml"
               },
               {
-                "workflowFile": "merge-bot-pr.yml"
+                "workflowFile": "update-flake-lock-and-ci.yml"
               }
             ]
         timeout-minutes: 10
