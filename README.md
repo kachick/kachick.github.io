@@ -21,7 +21,6 @@ There are some tasks for tests
 
 ```console
 > deno task
-> deno task check
 > deno task stylelint
 ...
 ```
