@@ -8,6 +8,7 @@
     "deps": "nix --version && nil --version && deno --version && dprint --version",
     "cache": "deno cache --node-modules-dir npm:stylelint@16.2.1 npm:stylelint-config-recommended@14.0.0",
     "fmt": "deno fmt && dprint fmt && nix fmt ./*.nix",
+    "update-reset-css": "curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/master/nanoreset.min.css --output-dir public/vendor",
   },
   "lint": {
     "include": ["scripts/"],
