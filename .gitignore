@@ -105,3 +105,5 @@ dist
 
 deno.lock
 .direnv/
+
+public/vendor

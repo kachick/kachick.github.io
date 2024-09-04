@@ -43,6 +43,10 @@ jobs:
             ]
         timeout-minutes: 10
       - uses: actions/configure-pages@v5
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: '1.44.3' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
+      - run: deno task get-dependencies
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
