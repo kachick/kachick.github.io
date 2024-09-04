@@ -41,6 +41,7 @@
               deno
               dprint
               typos
+              stylelint
             ];
           };
       }
