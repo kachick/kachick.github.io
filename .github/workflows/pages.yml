@@ -5,29 +5,44 @@ on:
     paths:
       - '.github/workflows/pages.yml'
       - 'public/**'
-  # Allows you to run this workflow manually from the Actions tab
+      - 'deno.jsonc'
+  pull_request:
+    paths:
+      - '.github/workflows/pages.yml'
+      - 'public/**'
+      - 'deno.jsonc'
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-# Allow one concurrent deployment
-concurrency:
-  group: 'pages'
-  cancel-in-progress: true
-
 jobs:
-  deploy:
+  build:
     timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: '1.44.3' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
+      - run: deno task get-dependencies
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'public'
+  deploy:
+    needs: [build]
+    if: ${{ github.event_name != 'pull_request' }}
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    name: Build and deploy
+    # Allow one concurrent deployment
+    concurrency:
+      group: 'pages'
+      cancel-in-progress: true
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
       - name: Wait other jobs
         uses: kachick/wait-other-jobs@v3
         with:
@@ -43,8 +58,5 @@ jobs:
             ]
         timeout-minutes: 10
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: 'public'
       - id: deployment
         uses: actions/deploy-pages@v4
