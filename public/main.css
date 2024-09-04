@@ -24,12 +24,8 @@ a {
 
 .main {
   grid-area: main;
-  display: flex;
-  align-items: center;
+  align-content: center;
   font-size: large;
-}
-
-.main-links {
   list-style: none;
   text-align: center;
   width: 100%;
@@ -37,9 +33,7 @@ a {
 
 .footer {
   grid-area: footer;
-}
-
-.footer-body {
+  align-content: end;
   font-size: x-small;
   position: sticky;
   top: 100%;
