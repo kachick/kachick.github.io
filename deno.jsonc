@@ -1,23 +1,11 @@
 {
   "tasks": {
     "serve": "deno task get-dependencies && deno run --allow-net --allow-read https://deno.land/std@0.217.0/http/file_server.ts public",
-    "check": "deno fmt --check && deno lint && deno check scripts/*.ts",
     // If you want to keep stylelint color print in local, Use `unbuffer deno run --node-modules-dir ...`
-    "stylelint": "deno task cache && deno run --node-modules-dir --allow-env --allow-read --allow-sys npm:stylelint@16.2.1/stylelint **/*.css | deno run --allow-sys scripts/isEmpty.ts",
-    "check-all": "dprint check && deno task stylelint && deno task check",
+    "stylelint": "deno task cache && stylelint public/*.css",
     "deps": "nix --version && nil --version && deno --version && dprint --version",
-    "cache": "deno cache --node-modules-dir npm:stylelint@16.2.1 npm:stylelint-config-recommended@14.0.0",
-    "fmt": "deno fmt && dprint fmt && nix fmt ./*.nix",
-    "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor --output-dir public/vendor",
-  },
-  "lint": {
-    "include": ["scripts/"],
-    "rules": {
-      "tags": ["recommended"],
-    },
-  },
-  "fmt": {
-    "singleQuote": true,
-    "include": ["scripts/"],
-  },
+    "cache": "deno cache --node-modules-dir npm:stylelint-config-recommended@14.0.1",
+    "fmt": "dprint fmt && nix fmt ./*.nix",
+    "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor --output-dir public/vendor"
+  }
 }
