@@ -3,12 +3,13 @@ html {
 }
 
 body {
-  background-color: #333631;
+  /* You should check the contrast with https://dequeuniversity.com/rules/axe/4.9/color-contrast before deploy */
+  background-color: #09092f;
   height: 100dvh;
 }
 
 a {
-  color: #a86f4c;
+  color: powderblue;
   text-decoration: none;
 }
 
