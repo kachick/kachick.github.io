@@ -27,6 +27,7 @@
                 nil
 
                 deno
+
                 dprint
                 typos
                 stylelint

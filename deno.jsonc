@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "serve": "deno task get-dependencies && deno run --allow-net --allow-read https://deno.land/std@0.217.0/http/file_server.ts public",
+    "serve": "deno task get-dependencies && deno run --allow-net --allow-read jsr:@std/http@^1.0.12/file-server public",
     // If you want to keep stylelint color print in local, Use `unbuffer deno run --node-modules-dir ...`
     "stylelint": "deno task cache && stylelint public/*.css",
     "deps": "nix --version && nil --version && deno --version && dprint --version",
