@@ -11,8 +11,9 @@
 Prepare dev shell with `nix develop` or `direnv allow`
 
 ```console
-> DENO_VERBOSE_WARNINGS=1 deno task serve
-Listening on http://localhost:4507/
+> deno task serve
+Listening on:
+- Local: http://0.0.0.0:8000
 ```
 
 Then you can access to <http://localhost:4507/>
