@@ -16,7 +16,7 @@ Listening on:
 - Local: http://0.0.0.0:8000
 ```
 
-Then you can access to <http://localhost:4507/>
+Then you can review via <http://0.0.0.0:8000>
 
 There are some tasks for tests
 
