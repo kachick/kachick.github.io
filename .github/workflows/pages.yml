@@ -64,7 +64,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh pr comment '${{ github.event.pull_request.number }}' --body '🚀 ${{ steps.deploy.outputs.deployment-url }}'
+          gh pr comment --repo '${{ github.repository }}' \
+            --body '🚀 ${{ steps.deploy.outputs.deployment-url }}' \
+            '${{ github.event.pull_request.number }}'
   github:
     needs: [build]
     if: ${{ github.event_name != 'pull_request' }}
