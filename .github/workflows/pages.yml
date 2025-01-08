@@ -27,6 +27,7 @@ jobs:
         with:
           path: 'public'
   clouflare:
+    if: github.event_name == 'pull_request'
     needs: [build]
     timeout-minutes: 15
     runs-on: ubuntu-24.04
@@ -54,7 +55,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=kachick-github-io
+          command: pages deploy dist --project-name=kachick-github-io --branch='${{ github.ref_name }}'
           gitHubToken: ${{ github.token }}
   github:
     needs: [build]
