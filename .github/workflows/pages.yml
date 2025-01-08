@@ -51,12 +51,20 @@ jobs:
           ls -alh ./dist
           tree ./dist
       - name: Deploy
+        id: deploy
         uses: cloudflare/wrangler-action@6d58852c35a27e6034745c5d0bc373d739014f7f # v3.13.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=kachick-github-io --branch='${{ github.ref_name }}'
+          # https://developers.cloudflare.com/workers/wrangler/commands/#pages
+          # I use branch for relating to PR number. Not actual git branch.
+          command: pages deploy dist --project-name=kachick-github-io --branch='${{ github.event.pull_request.number }}'
           gitHubToken: ${{ github.token }}
+      - name: Post comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment '${{ github.event.pull_request.number }}' --body '🚀 ${{ steps.deploy.outputs.deployment-url }}'
   github:
     needs: [build]
     if: ${{ github.event_name != 'pull_request' }}
