@@ -26,7 +26,49 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
-  deploy:
+  clouflare:
+    if: github.event_name == 'pull_request'
+    needs: [build]
+    timeout-minutes: 15
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write # Required to post comment
+    steps:
+      - name: Download build assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        # upload-pages-artifact actually uploading artifacts with special structure. So we can download them
+        # See https://github.com/actions/upload-pages-artifact/blob/2d163be3ddce01512f3eea7ac5b7023b5d643ce1/.github/workflows/test-hosted-runners.yml#L37-L45
+        run: |
+          gh run download --repo '${{ github.repository }}'
+          ls -alh
+          tree
+      - name: Extract the downloaded artifact
+        run: |
+          mkdir dist
+          tar -xf ./github-pages/artifact.tar -C dist
+          ls -alh ./dist
+          tree ./dist
+      - name: Deploy
+        id: deploy
+        uses: cloudflare/wrangler-action@6d58852c35a27e6034745c5d0bc373d739014f7f # v3.13.0
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # https://developers.cloudflare.com/workers/wrangler/commands/#pages
+          # I use branch for relating to PR number. Not actual git branch.
+          command: pages deploy dist --project-name=kachick-github-io --branch='${{ github.event.pull_request.number }}'
+          gitHubToken: ${{ github.token }}
+      - name: Post comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr comment --repo '${{ github.repository }}' \
+            --body '🚀 ${{ steps.deploy.outputs.deployment-url }}' \
+            '${{ github.event.pull_request.number }}'
+  github:
     needs: [build]
     if: ${{ github.event_name != 'pull_request' }}
     timeout-minutes: 15
