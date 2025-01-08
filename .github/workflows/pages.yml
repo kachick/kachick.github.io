@@ -34,14 +34,13 @@ jobs:
       contents: read
       deployments: write
     steps:
-      - uses: actions/checkout@v4 # For enabling repo in gh command
       - name: Download build assets
         env:
           GH_TOKEN: ${{ github.token }}
         # upload-pages-artifact actually uploading artifacts with special structure. So we can download them
         # See https://github.com/actions/upload-pages-artifact/blob/2d163be3ddce01512f3eea7ac5b7023b5d643ce1/.github/workflows/test-hosted-runners.yml#L37-L45
         run: |
-          gh run download
+          gh run download --repo '${{ github.repository }}'
       - name: Deploy
         uses: cloudflare/wrangler-action@6d58852c35a27e6034745c5d0bc373d739014f7f # v3.13.0
         with:
