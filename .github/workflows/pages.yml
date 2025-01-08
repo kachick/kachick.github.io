@@ -43,12 +43,18 @@ jobs:
           gh run download --repo '${{ github.repository }}'
           ls -alh
           tree
+      - name: Extract the downloaded artifact
+        run: |
+          mkdir dist
+          tar -xf ./github-pages/artifact.tar -C dist
+          ls -alh ./dist
+          tree ./dist
       - name: Deploy
         uses: cloudflare/wrangler-action@6d58852c35a27e6034745c5d0bc373d739014f7f # v3.13.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy public --project-name=kachick-github-io
+          command: pages deploy dist --project-name=kachick-github-io
           gitHubToken: ${{ github.token }}
   github:
     needs: [build]
