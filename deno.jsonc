@@ -6,6 +6,6 @@
     "deps": "nix --version && nil --version && deno --version && dprint --version",
     "cache": "deno cache --node-modules-dir npm:stylelint-config-recommended@14.0.1",
     "fmt": "dprint fmt && nix fmt ./*.nix",
-    "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor --output-dir public/vendor"
+    "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor"
   }
 }
