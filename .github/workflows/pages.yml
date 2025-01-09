@@ -26,7 +26,7 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: 'public'
-  clouflare:
+  cloudflare:
     if: github.event_name == 'pull_request'
     needs: [build]
     timeout-minutes: 15
