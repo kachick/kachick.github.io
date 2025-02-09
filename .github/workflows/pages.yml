@@ -42,7 +42,7 @@ jobs:
         # upload-pages-artifact actually uploading artifacts with special structure. So we can download them
         # See https://github.com/actions/upload-pages-artifact/blob/2d163be3ddce01512f3eea7ac5b7023b5d643ce1/.github/workflows/test-hosted-runners.yml#L37-L45
         run: |
-          gh run download --repo '${{ github.repository }}'
+          gh run download '${{ github.run_id }}' --repo '${{ github.repository }}'
           ls -alh
           tree
       - name: Extract the downloaded artifact
