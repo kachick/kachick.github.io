@@ -3,7 +3,6 @@
     "serve": "deno task get-dependencies && deno run --allow-net --allow-read jsr:@std/http@^1.0.12/file-server public",
     // If you want to keep stylelint color print in local, Use `unbuffer deno run --node-modules-dir ...`
     "stylelint": "deno task cache && stylelint public/*.css",
-    "deps": "nix --version && nil --version && deno --version && dprint --version",
     "cache": "deno cache --node-modules-dir npm:stylelint-config-recommended@14.0.1",
     "fmt": "dprint fmt && nix fmt ./*.nix",
     "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor"
