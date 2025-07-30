@@ -36,7 +36,7 @@
 
                 dprint
                 typos
-                stylelint
+                biome
               ];
             };
         }
