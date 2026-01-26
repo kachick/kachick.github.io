@@ -21,7 +21,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: denoland/setup-deno@v2
         with:
-          deno-version: '2.6.4' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
+          deno-version: '2.6.5' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
       - run: deno task get-dependencies
       - uses: actions/upload-pages-artifact@v4
         with:
