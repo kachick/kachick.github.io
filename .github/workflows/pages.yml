@@ -13,13 +13,19 @@ on:
       - 'deno.jsonc'
   workflow_dispatch:
 
+permissions: {}
+
 jobs:
   build:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@v6
-      - uses: denoland/setup-deno@v2
+        with:
+          persist-credentials: false
+      - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2
         with:
           deno-version: '2.6.10' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
       - run: deno task get-dependencies
@@ -64,10 +70,12 @@ jobs:
       - name: Post comment
         env:
           GH_TOKEN: ${{ github.token }}
+          DEPLOYMENT_URL: ${{ steps.deploy.outputs.deployment-url }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           gh pr comment --repo '${{ github.repository }}' \
-            --body '🚀 ${{ steps.deploy.outputs.deployment-url }}' \
-            '${{ github.event.pull_request.number }}'
+            --body "🚀 $DEPLOYMENT_URL" \
+            "$PR_NUMBER"
   github:
     needs: [build]
     if: ${{ github.event_name != 'pull_request' }}
@@ -86,7 +94,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Wait other jobs
-        uses: kachick/wait-other-jobs@v4
+        uses: kachick/wait-other-jobs@59f25684252050d78317758cbfea7a5f261960cd # v4
         with:
           skip-list: |
             [
