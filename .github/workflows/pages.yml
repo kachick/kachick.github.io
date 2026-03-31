@@ -33,7 +33,7 @@ jobs:
         with:
           path: 'public'
   cloudflare:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.actor == github.repository_owner
     needs: [build]
     timeout-minutes: 15
     runs-on: ubuntu-24.04
