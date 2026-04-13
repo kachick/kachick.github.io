@@ -27,7 +27,7 @@ jobs:
           persist-credentials: false
       - uses: denoland/setup-deno@667a34cdef165d8d2b2e98dde39547c9daac7282 # v2
         with:
-          deno-version: '2.7.4' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
+          deno-version: '2.7.9' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
       - run: deno task get-dependencies
       - uses: actions/upload-pages-artifact@v4
         with:
