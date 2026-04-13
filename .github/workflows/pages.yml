@@ -29,7 +29,7 @@ jobs:
         with:
           deno-version: '2.7.9' # selfup {"extract":"\\d[^']+","replacer":["bash","-c","deno --version | head -n 1"],"nth": 2}
       - run: deno task get-dependencies
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: 'public'
   cloudflare:
