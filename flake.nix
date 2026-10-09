@@ -42,6 +42,7 @@
                 nixd
 
                 caddy
+                devd
                 go-task
 
                 dprint

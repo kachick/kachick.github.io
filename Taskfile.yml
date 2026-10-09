@@ -20,4 +20,4 @@ tasks:
   serve:
     cmds:
       - echo 'Listening on http://localhost:8000'
-      - caddy file-server --listen :8000 --root public
+      - devd -l -p 8000 public
