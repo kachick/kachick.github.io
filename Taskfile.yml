@@ -18,12 +18,5 @@ tasks:
       - treefmt
 
   serve:
-    deps:
-      - task: get-dependencies
     cmds:
       - caddy file-server --listen :8000 --root public
-
-  get-dependencies:
-    cmds:
-      - mkdir -p public/vendor
-      - nix build .#nanoreset --out-link public/vendor/nanoreset.min.css

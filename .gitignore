@@ -107,5 +107,3 @@ dist
 result
 result-*
 .direnv/
-
-public/vendor

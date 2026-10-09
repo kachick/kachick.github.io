@@ -18,14 +18,12 @@
         in
         {
           default = pkgs.callPackage ./package.nix { };
-          nanoreset = self.packages.${system}.default.nanoreset;
         }
       );
       devShells = forAllSystems (
         system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
-          nanoreset = self.packages.${system}.default.nanoreset;
         in
         {
           default =
@@ -50,11 +48,6 @@
                 typos
                 biome
               ];
-
-              shellHook = ''
-                mkdir -p public/vendor
-                ln -sf ${nanoreset} public/vendor/nanoreset.min.css
-              '';
             };
         }
       );
