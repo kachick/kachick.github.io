@@ -41,7 +41,6 @@
                 nixfmt-tree
                 nixd
 
-                caddy
                 devd
                 go-task
 
