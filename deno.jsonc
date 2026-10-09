@@ -1,8 +1,0 @@
-{
-  "tasks": {
-    "serve": "deno task get-dependencies && deno run --allow-net --allow-read jsr:@std/http@^1.0.12/file-server public",
-    "check": "dprint check && biome check",
-    "fmt": "dprint fmt && treefmt",
-    "get-dependencies": "mkdir -p public/vendor && curl -OL https://raw.githubusercontent.com/tiaanduplessis/nanoreset/94bad84b5d1044651e333a283af6db2e54648e74/nanoreset.min.css --output-dir public/vendor"
-  }
-}

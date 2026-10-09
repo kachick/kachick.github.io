@@ -11,16 +11,14 @@
 Prepare dev shell with `nix develop` or `direnv allow`
 
 ```console
-> deno task serve
-Listening on:
-- Local: http://0.0.0.0:8000
+> task serve
 ```
 
-Then you can review via <http://0.0.0.0:8000>
+Then you can review via <http://localhost:8000>
 
 There are some tasks for tests
 
 ```console
-> deno task
+> task
 ...
 ```

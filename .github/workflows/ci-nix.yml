@@ -7,14 +7,14 @@ on:
       - '.github/workflows/ci-nix.yml'
       - '*.nix'
       - 'flake.*'
-      - 'deno.*'
+      - 'Taskfile.yml'
       - 'biome.*'
   pull_request:
     paths:
       - '.github/workflows/ci-nix.yml'
       - '*.nix'
       - 'flake.*'
-      - 'deno.*'
+      - 'Taskfile.yml'
       - 'biome.*'
   schedule:
     # Every 10:42 JST
@@ -40,5 +40,7 @@ jobs:
       - parallel:
           - name: Validate flakes
             run: nix flake check
+          - name: Build site package
+            run: nix build
           - name: Run basic task to check
-            run: deno task
+            run: task check
