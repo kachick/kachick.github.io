@@ -1,1 +1,2 @@
 .envrc linguist-vendored
+public/vendor/** linguist-generated
