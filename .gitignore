@@ -103,7 +103,7 @@ dist
 # TernJS port file
 .tern-port
 
-deno.lock
+.task/
+result
+result-*
 .direnv/
-
-public/vendor

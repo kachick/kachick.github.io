@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - task: check
+
+  check:
+    cmds:
+      - dprint check
+      - biome check
+
+  fmt:
+    cmds:
+      - dprint fmt
+      - treefmt
+
+  serve:
+    cmds:
+      - echo 'Listening on http://localhost:8000'
+      - devd -l -p 8000 public
