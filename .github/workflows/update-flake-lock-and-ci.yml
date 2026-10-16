@@ -9,16 +9,15 @@ on:
     - cron: '17 1 * * 1'
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
-  update-nixpkgs:
-    uses: kachick/selfup/.github/workflows/reusable-bump-flake-lock-and-selfup.yml@v1.3.1
-    if: (github.event.sender.login == 'kachick') || (github.event_name != 'pull_request')
+  bump:
+    uses: kachick/workflows/.github/workflows/reusable-bump-flake-lock.yml@main
     with:
-      app_id: ${{ vars.APP_ID }}
-      dry-run: ${{ github.event_name == 'pull_request' }}
-      pr-title: 'Bump flake.lock and related dependencies'
-      optional-run: |
-        nix develop --command bash -c 'biome migrate --write && dprint fmt'
-        git diff-index --quiet HEAD || git commit -m 'Bump biome.json' biome.json
+      app-id: ${{ vars.SAMU_APP_ID }}
+      post-commit-lock-file: nix develop --command bash -c "biome migrate --write && dprint fmt"
+      post-commit-lock-file-title: 'Bump biome.json'
     secrets:
-      APP_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+      APP_PRIVATE_KEY: ${{ secrets.SAMU_APP_PRIVATE_KEY }}
