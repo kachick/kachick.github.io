@@ -1,3 +1,9 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   height: 100dvh;
 }
@@ -6,6 +12,15 @@ body {
   /* You should check the contrast with https://dequeuniversity.com/rules/axe/4.9/color-contrast before deploy */
   background-color: #09092f;
   height: 100dvh;
+  margin: 0;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 a {
