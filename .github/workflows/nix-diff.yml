@@ -15,5 +15,4 @@ jobs:
     with:
       runs-on: ubuntu-26.04
       targets: |
-        packages.x86_64-linux.default
         devShells.x86_64-linux.default

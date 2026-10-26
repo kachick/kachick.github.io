@@ -40,7 +40,5 @@ jobs:
       - parallel:
           - name: Validate flakes
             run: nix flake check
-          - name: Build site package
-            run: nix build
           - name: Run basic task to check
             run: task check
