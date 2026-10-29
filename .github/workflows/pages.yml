@@ -16,7 +16,7 @@ permissions: {}
 jobs:
   build:
     timeout-minutes: 15
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
     steps:
@@ -30,7 +30,7 @@ jobs:
     if: github.event_name == 'pull_request' && github.actor == github.repository_owner
     needs: [build]
     timeout-minutes: 15
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     permissions:
       contents: read
       deployments: write
@@ -85,7 +85,7 @@ jobs:
     concurrency:
       group: 'pages'
       cancel-in-progress: true
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-26.04
     steps:
       - name: Wait other jobs
         uses: kachick/wait-other-jobs@59f25684252050d78317758cbfea7a5f261960cd # v4
